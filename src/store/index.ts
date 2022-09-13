@@ -1,13 +1,13 @@
 import { createStore } from "vuex";
 
-import { AuthState, State } from "@type/index";
+import { AuthState, LoginForm, State } from "@type/index";
 import { loginRequest } from "@api/index";
 import { getInitialState, syncAuthStorage } from "@store/helpers";
 
 export default createStore<State>({
   state: getInitialState,
   actions: {
-    async login(context, payload = "") {
+    async login(context, payload: LoginForm) {
       const loginData: AuthState = await loginRequest(payload);
       context.commit("setAuth", loginData);
     },
