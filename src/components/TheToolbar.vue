@@ -10,10 +10,12 @@ export default defineComponent({});
 </script>
 
 <style scoped lang="scss">
+@import "@style/colors.scss";
+
 nav {
   width: 100%;
   height: 4.5rem;
-  background-color: rgb(0, 0, 107);
+  background-color: $toolbar-color;
   display: flex;
   align-items: center;
   padding: 0 3rem;

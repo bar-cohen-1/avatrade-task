@@ -19,6 +19,7 @@
       "@constants/*": ["src/constants/*"],
       "@router/*": ["src/router/*"],
       "@store/*": ["src/store/*"],
+      "@style/*": ["src/style/*"],
       "@type/*": ["src/types/*"],
       "@views/*": ["src/views/*"]
     },

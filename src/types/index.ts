@@ -21,7 +21,7 @@ export interface LoginForm {
 
 export interface DepositForm {
   creditCard: string;
-  expiredDate: string;
+  expiryDate: string;
   cvv: string;
 }
 

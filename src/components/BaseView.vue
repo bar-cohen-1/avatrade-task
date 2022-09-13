@@ -1,9 +1,11 @@
 <template>
-  <main>
+  <main class="view flex-col">
     <h1>
       {{ header }}
     </h1>
-    <slot></slot>
+    <section>
+      <slot></slot>
+    </section>
   </main>
 </template>
 
@@ -21,11 +23,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-main {
+.view {
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem 2rem;
-  display: flex;
-  justify-content: center;
 }
 </style>

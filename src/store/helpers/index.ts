@@ -1,2 +1,2 @@
-export * from "./getInitialState";
+export * from "./resetState";
 export * from "./syncLocalStorage";
