@@ -1,17 +1,11 @@
 import { createStore } from "vuex";
 
 import { AuthState, LoginForm, State } from "@type/index";
+import { LocalStorageService } from "@services/localStorage";
 import { loginRequest } from "@api/index";
-import { resetState, syncAuthStorage } from "@store/helpers";
-
-// Initial state
-const initialState: State = resetState();
-if (localStorage.getItem("authToken")) {
-  initialState.auth = {
-    token: localStorage.getItem("authToken")?.toString(),
-    userId: Number(localStorage.getItem("userId")),
-  };
-}
+import { resetState } from "@store/resetState";
+import { initialState } from "@store/initialState";
+import { STORAGE } from "@constants/storage";
 
 // Create store
 export default createStore<State>({
@@ -26,9 +20,14 @@ export default createStore<State>({
     },
   },
   mutations: {
-    setAuth(state, payload: AuthState) {
-      state.auth = payload;
-      syncAuthStorage(payload);
+    setAuth(state, payload?: AuthState) {
+      if (payload) {
+        state.auth = payload;
+        LocalStorageService.set(STORAGE.APP_STATE, state);
+      } else {
+        state = resetState();
+        LocalStorageService.remove(STORAGE.APP_STATE);
+      }
     },
   },
   getters: {
