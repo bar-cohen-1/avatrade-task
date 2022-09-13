@@ -8,20 +8,20 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
-      path: URL.deposit,
+      path: URL.DEPOSIT,
       name: "deposit",
       component: DepositView, // Main view
       meta: { requiresAuth: true },
     },
     {
-      path: URL.login,
+      path: URL.LOGIN,
       name: "login",
       component: () => import("@views/LoginView.vue"),
       meta: { requiresAuth: false },
     },
     {
       path: "/:pathMatch(.*)*",
-      redirect: URL.deposit,
+      redirect: URL.DEPOSIT,
     },
   ],
 });
@@ -29,7 +29,7 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const isAuthenticated = store.getters.isAuthenticated;
   if (to.meta.requiresAuth && !isAuthenticated) {
-    return URL.login;
+    return URL.LOGIN;
   }
 });
 
