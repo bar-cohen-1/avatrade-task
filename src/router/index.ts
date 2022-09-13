@@ -30,6 +30,8 @@ router.beforeEach(async (to) => {
   const isAuthenticated = store.getters.isAuthenticated;
   if (to.meta.requiresAuth && !isAuthenticated) {
     return URL.LOGIN;
+  } else if (to.path === URL.LOGIN && isAuthenticated) {
+    return URL.DEPOSIT;
   }
 });
 
