@@ -5,13 +5,15 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   methods: {
     onSubmit() {
       // logic here...
     },
   },
-};
+});
 </script>
 
 <style scoped lang="scss"></style>

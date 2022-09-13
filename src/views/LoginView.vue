@@ -1,7 +1,9 @@
 <template>
-  <div class="home"></div>
+  <base-view header="Login" />
 </template>
 
 <script lang="ts">
-export default {};
+import { defineComponent } from "vue";
+
+export default defineComponent({});
 </script>

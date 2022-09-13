@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <h1>This is deposit page</h1>
-  </div>
+  <base-view header="Deposit" />
 </template>
 
 <script lang="ts">
-export default {};
+import { defineComponent } from "vue";
+
+export default defineComponent({});
 </script>
