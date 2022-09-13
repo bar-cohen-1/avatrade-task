@@ -17,9 +17,10 @@
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
+      "@router/*": ["src/router/*"],
       "@store/*": ["src/store/*"],
-      "@views/*": ["src/views/*"],
-      "@router/*": ["src/router/*"]
+      "@type/*": ["src/types/*"],
+      "@views/*": ["src/views/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

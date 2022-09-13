@@ -1,13 +1,15 @@
 import { createStore } from "vuex";
 
-import { AuthState, State } from "./types";
-import { clearAuthStorage, getInitialState } from "./helpers";
+import { AuthState, State } from "@type/index";
+import { loginRequest } from "@api/index";
+import { getInitialState, syncAuthStorage } from "@store/helpers";
 
 export default createStore<State>({
   state: getInitialState,
   actions: {
-    login() {
-      // Login logic
+    async login(context, payload = "") {
+      const loginData: AuthState = await loginRequest(payload);
+      context.commit("setAuth", loginData);
     },
     logout(context) {
       context.commit("setAuth", getInitialState());
@@ -16,7 +18,7 @@ export default createStore<State>({
   mutations: {
     setAuth(state, payload: AuthState) {
       state.auth = payload;
-      clearAuthStorage();
+      syncAuthStorage(payload);
     },
   },
   getters: {

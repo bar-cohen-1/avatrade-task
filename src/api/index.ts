@@ -1,4 +1,4 @@
-import { AuthState } from "@store/types";
+import { AuthState } from "@type/index";
 import { AUTH_API_URL } from "@constants/url";
 
 type LoginForm = string; // TODO: import from original declaration

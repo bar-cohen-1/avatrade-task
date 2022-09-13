@@ -1,4 +1,4 @@
-import { AuthState } from "@store/types";
+import { AuthState } from "@type/index";
 
 export const clearAuthStorage = () => {
   localStorage.removeItem("authToken");
