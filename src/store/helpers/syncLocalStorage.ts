@@ -6,7 +6,7 @@ export const clearAuthStorage = () => {
 };
 
 export const syncAuthStorage = (auth: AuthState) => {
-  if (auth.token === null) {
+  if (!auth?.token || !auth?.userId) {
     clearAuthStorage();
   } else {
     localStorage.setItem("authToken", auth.token);

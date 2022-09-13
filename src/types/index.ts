@@ -3,15 +3,10 @@ import "vue-router";
 
 // State
 
-export interface AuthStateLoggedOut {
-  token: null;
-  userId: null;
+export interface AuthState {
+  token?: string;
+  userId?: number;
 }
-export interface AuthStateLoggedIn {
-  token: string;
-  userId: number;
-}
-export type AuthState = AuthStateLoggedOut | AuthStateLoggedIn;
 
 export interface State {
   auth: AuthState;
