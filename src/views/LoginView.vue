@@ -21,8 +21,6 @@ export default defineComponent({
   },
   methods: {
     async onSubmit() {
-      console.log("username", this.username);
-      if (!this.username) return;
       await this.$store.dispatch("login", this.$data);
       this.$router.push(URL.DEPOSIT);
     },

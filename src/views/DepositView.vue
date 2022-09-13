@@ -3,17 +3,25 @@
     <base-form :onSubmit="onSubmit">
       <base-input
         v-model="data.creditCard"
-        required
+        :error="error.creditCard"
+        @blur="validate"
         maxlength="16"
         label="Credit Card"
       />
       <base-input
         v-model="data.expiryDate"
-        required
+        :error="error.expiryDate"
+        @blur="validate"
         maxlength="4"
         label="Expire"
       />
-      <base-input v-model="data.cvv" required maxlength="3" label="CVV" />
+      <base-input
+        v-model="data.cvv"
+        :error="error.cvv"
+        @blur="validate"
+        maxlength="3"
+        label="CVV"
+      />
     </base-form>
   </base-view>
 </template>
@@ -46,12 +54,13 @@ export default defineComponent({
     validate() {
       let errors: DepositFormErrors = {};
       Object.keys(this.data).forEach((key) => {
-        // if (!this.data[key]) {
-        // errors[key] = "this field is required";
-        // }
+        const _key = key as keyof DepositForm;
+        if (!this.data[_key]) {
+          errors[_key] = "this field is required";
+        }
       });
       this.error = errors;
-      return Object.keys(errors).length === 0;
+      return !Object.keys(errors).length;
     },
     onSubmit() {
       if (this.validate()) {

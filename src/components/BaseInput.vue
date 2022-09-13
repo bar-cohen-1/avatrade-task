@@ -1,11 +1,19 @@
 <template>
   <div class="base-input">
-    <div class="inner-base-input">
-      <input :id="id" type="text" :placeholder="label" v-bind="$attrs" />
+    <div class="inner-base-input" :class="{ error: !!error }">
+      <input
+        :id="id"
+        type="text"
+        :placeholder="label"
+        @input="
+          $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+        "
+        v-bind="$attrs"
+      />
     </div>
-    <span class="base-input-error" v-if="!!error">
+    <p class="base-input-error" v-if="!!error">
       {{ error }}
-    </span>
+    </p>
   </div>
 </template>
 
@@ -20,6 +28,12 @@ export default defineComponent({
     },
     id: String,
     error: String,
+    modelValue: String,
+  },
+  data() {
+    return {
+      content: this.value,
+    };
   },
 });
 </script>
@@ -36,14 +50,20 @@ export default defineComponent({
     border: 2px solid $border-dark;
   }
 
+  .inner-base-input.error {
+    border-color: $error-color;
+  }
+
   input {
-    border: none;
     color: $text-color;
+    border: none;
     outline: none;
   }
 }
 
 .base-input-error {
   color: $error-color;
+  margin: 0;
+  margin-top: 0.25rem;
 }
 </style>
