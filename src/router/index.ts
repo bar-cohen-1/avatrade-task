@@ -1,26 +1,28 @@
 import { createRouter, createWebHistory } from "vue-router";
-import DepositView from "@views/DepositView.vue";
+
+import "@router/types";
 import store from "@store/index";
-import "./types";
+import { LOGIN_PATH, DEPOSIT_PATH } from "@constants/url";
+import DepositView from "@views/DepositView.vue";
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
-      path: "/deposit",
+      path: DEPOSIT_PATH,
       name: "deposit",
       component: DepositView, // Main view
       meta: { requiresAuth: true },
     },
     {
-      path: "/login",
+      path: LOGIN_PATH,
       name: "login",
       component: () => import("@views/LoginView.vue"),
       meta: { requiresAuth: false },
     },
     {
       path: "/:pathMatch(.*)*",
-      redirect: "/deposit",
+      redirect: DEPOSIT_PATH,
     },
   ],
 });
@@ -28,7 +30,7 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const isAuthenticated = store.getters.isAuthenticated;
   if (to.meta.requiresAuth && !isAuthenticated) {
-    return "/login";
+    return LOGIN_PATH;
   }
 });
 

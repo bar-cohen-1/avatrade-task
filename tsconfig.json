@@ -14,7 +14,9 @@
     "baseUrl": ".",
     "types": ["webpack-env"],
     "paths": {
+      "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
       "@store/*": ["src/store/*"],
       "@views/*": ["src/views/*"],
       "@router/*": ["src/router/*"]
