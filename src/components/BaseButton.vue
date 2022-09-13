@@ -1,5 +1,5 @@
 <template>
-  <button>
+  <button class="base-button">
     <slot></slot>
   </button>
 </template>
@@ -13,7 +13,7 @@ export default defineComponent({});
 <style scoped lang="scss">
 @import "@style/colors.scss";
 
-button {
+.base-button {
   padding: 0.75rem 1.5rem;
   background-color: $base-color;
   border: 1px solid $base-color;
@@ -21,11 +21,11 @@ button {
   color: white;
   min-width: 8em;
   cursor: pointer;
-}
 
-button:hover,
-button:active {
-  background-color: $base-color-active;
-  border-color: $base-color-active;
+  &:hover,
+  &:active {
+    background-color: $base-color-active;
+    border-color: $base-color-active;
+  }
 }
 </style>

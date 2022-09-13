@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
   padding: 1rem;
   width: 24rem;
 
-  div.base-input {
+  .base-input {
     margin-bottom: 1.25rem;
   }
 

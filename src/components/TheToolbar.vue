@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="toolbar">
     <h2>Avatrade Task</h2>
   </nav>
 </template>
@@ -12,7 +12,7 @@ export default defineComponent({});
 <style scoped lang="scss">
 @import "@style/colors.scss";
 
-nav {
+.toolbar {
   width: 100%;
   height: 4.5rem;
   background-color: $toolbar-color;
