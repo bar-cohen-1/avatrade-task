@@ -1,0 +1,3 @@
+# avatrade-task
+
+Avatrade task
