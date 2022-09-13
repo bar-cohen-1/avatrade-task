@@ -12,11 +12,11 @@ export default defineComponent({});
 <style scoped lang="scss">
 nav {
   width: 100%;
-  height: 72px;
+  height: 4.5rem;
   background-color: rgb(0, 0, 107);
   display: flex;
   align-items: center;
-  padding: 0 4rem;
+  padding: 0 3rem;
 
   h2 {
     color: white;
